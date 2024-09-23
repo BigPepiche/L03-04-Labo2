@@ -54,7 +54,6 @@ bibliotheque.pop("cote_rangement")
 
 # TODO : Écrire votre code ici
 anciennes_clees = []
-#nouvelles_clees = []
 for livre in bibliotheque:
     if (bibliotheque.get(livre)).get("auteur") == "William Shakespeare":
         anciennes_clees.append(livre)
