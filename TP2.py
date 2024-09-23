@@ -27,6 +27,9 @@ for ligne in r:
             "date_publication":date_publication
     }
     bibliotheque.update({clée:renseignements})
+bibliotheque.pop("cote_rangement")
+
+
 
 
 
