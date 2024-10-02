@@ -59,7 +59,7 @@ Effectuez ce changement dans le système de gestion. Par la suite, affichez le s
 ### Partie 4 : Emprunts et retours de livres (5 points)
 La bibliothèque souhaite tenir compte des emprunts et des retours de livres dans son système de gestion. Les cotes des livres empruntés ont été enregistrés avec la date d'emprunt dans le fichier `emprunts.csv`. 
 
-Dans le système de gestion, commencez par ajouter une clé intitulée `emprunts` dans le dictionnaire `bibliotheque` pour suivre l'état de chaque livre. Associez à cette clé la valeur `disponible` si le livre est présent dans la bibliothèque, ou `emprunté` si le livre a été emprunté. Cette clé permettra de gérer facilement les emprunts et les retours des livres.
+Dans le système de gestion, commencez par ajouter une clé intitulée `emprunts` dans le dictionnaire `bibliotheque` pour suivre l'état de chaque livre. Asseociez à cette clé la valeur `disponible` si le livre est présent dans la bibliothèque, ou `emprunté` si le livre a été emprunté. Cette clé permettra de gérer facilement les emprunts et les retours des livres.
 
 Par la suite, ajoutez une clé `date_emprunt`, qui contient les dates auxquelles les livres ont été empruntés. Affichez la bibliothèque mise à jour avec : `print(f' \n Bibliotheque avec ajout des emprunts : {bibliotheque} \n')`
 
