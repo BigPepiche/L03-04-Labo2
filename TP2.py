@@ -31,10 +31,7 @@ bibliotheque.pop("cote_rangement")
 
 
 
-
-
-
-
+print(f' \n Bibliotheque initiale : {bibliotheque} \n')
 
 
 ########################################################################################################## 
@@ -53,7 +50,7 @@ for livre in r:
    
    if  clée in bibliotheque :
        print("Le livre "+clée+" ---- "+titre+" par "+auteur+" ---- est déjà présent dans la bibliothèque")
-   else:
+   elif clée != "cote_rangement":
        renseignements = {
             "titre":titre,
             "auteur":auteur,
@@ -62,8 +59,6 @@ for livre in r:
         }
        bibliotheque[clée] = renseignements
        print("Le livre "+clée+" ---- "+titre+" par "+auteur+" ---- a été ajouté avec succès")
-  
-
 
 
 ########################################################################################################## 
@@ -79,8 +74,8 @@ for livre in bibliotheque:
 for clee in anciennes_clees:
     bibliotheque.update({"W"+clee:bibliotheque.get(clee)})
     bibliotheque.pop(clee)
-   
 
+print(f' \n Bibliotheque avec modifications de cote : {bibliotheque} \n')
 
 
 ########################################################################################################## 
@@ -98,20 +93,21 @@ clées = []
 for livre in r:
    
     clée = livre[0]
-    if clée in bibliotheque:
-         bibliotheque[clée]["emprunts"] = "emprunté"
-         bibliotheque[clée]["date_emprunt"] = livre[1]
-
-    clées.append(clée)
+    #if clée in bibliotheque :
+    if clée != "cote_rangement":
+        bibliotheque[clée]["emprunts"] = "emprunté"
+        bibliotheque[clée]["date_emprunt"] = livre[1]
+        clées.append(clée)
  
-clées.remove("cote_rangement")
+#clées.remove("cote_rangement")
+
 
 for  i in bibliotheque :
     if i not in clées :
-         print(i)
          bibliotheque[i]["emprunts"] = "disponible"
-    
 
+print(f' \n Bibliotheque avec ajout des emprunts : {bibliotheque} \n')
+    
 
 ########################################################################################################## 
 # PARTIE 5 : Livres en retard 
@@ -119,18 +115,22 @@ for  i in bibliotheque :
 
 # TODO : Écrire votre code ici
 
-
 for  i in clées :
     date1 = bibliotheque[i]["date_emprunt"]
     
     annee, mois, jours = date1.split("-")
     date2 = date(int(annee), int(mois), int(jours))
     delta = date.today() - date2
+    jours_de_retard = delta.days - 30
+    #print(delta.days)
 
-    print(delta.days)
+    if jours_de_retard >=50:bibliotheque[i]["frais_retard"] = 100
+    elif jours_de_retard>0:bibliotheque[i]["frais_retard"] =2*(jours_de_retard)
+    else: bibliotheque[i]["frais_retard"] =0
 
-    bibliotheque[i]["frais_retard"] = ""
+    if delta.days >= 365: bibliotheque[i]["livre_perdu"] = True
+    else: bibliotheque[i]["livre_perdu"] = False
 
-
+print(f' \n Bibliotheque avec ajout des retards et frais : {bibliotheque} \n')
 
 
