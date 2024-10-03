@@ -7,7 +7,7 @@ Noms et matricules : Reginald Rancy (2393346), Zakaria Soudaki (2394358)
 """
 
 import csv
-
+from datetime import datetime , date
 ########################################################################################################## 
 # PARTIE 1 : Création du système de gestion et ajout de la collection actuelle
 ########################################################################################################## 
@@ -96,31 +96,21 @@ r = csv.reader(dates)
 clées = []
 
 for livre in r:
-
+   
     clée = livre[0]
     if clée in bibliotheque:
          bibliotheque[clée]["emprunts"] = "emprunté"
          bibliotheque[clée]["date_emprunt"] = livre[1]
 
     clées.append(clée)
+ 
+clées.remove("cote_rangement")
 
 for  i in bibliotheque :
     if i not in clées :
          print(i)
          bibliotheque[i]["emprunts"] = "disponible"
     
-   
-print(f' \n Bibliotheque avec ajout des emprunts : {bibliotheque} \n')
-
-
-
-
-
-
-
-
-
-
 
 
 ########################################################################################################## 
@@ -130,6 +120,16 @@ print(f' \n Bibliotheque avec ajout des emprunts : {bibliotheque} \n')
 # TODO : Écrire votre code ici
 
 
+for  i in clées :
+    date1 = bibliotheque[i]["date_emprunt"]
+    
+    annee, mois, jours = date1.split("-")
+    date2 = date(int(annee), int(mois), int(jours))
+    delta = date.today() - date2
+
+    print(delta.days)
+
+    bibliotheque[i]["frais_retard"] = ""
 
 
 
