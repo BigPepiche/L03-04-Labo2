@@ -37,7 +37,7 @@ Par la suite, vérifiez que votre dictionnaire `bibliotheque` contienne correcte
 ### Partie 2 : Ajout d'une nouvelle collection à la bibliothèque (3 points)
 La bibliothèque a fait l'achat d'une nouvelle collection de livres. Cette nouvelle collection est contenue dans le fichier `nouvelle_collection.csv`. 
 
-Ajoutez les livres de cette nouvelle collection au système de gestion (c'est-à-dire, dans le dictionnaire nommé `bibliotheque` créé à l'étape 2), en utilisant des structures de contrôle appropriées. Chacune des entrées devrait comprendre la cote de rangement avec le titre du livre, l'auteur et la date de publication. 
+Ajoutez les livres de cette nouvelle collection au système de gestion (c'est-à-dire, dans le dictionnaire nommé `bibliotheque` créé à l'étape 1), en utilisant des structures de contrôle appropriées. Chacune des entrées devrait comprendre la cote de rangement avec le titre du livre, l'auteur et la date de publication. 
 
 Attention : Ne pas ajouter les livres qui sont déjà présents dans la collection (c'est-à-dire, les livres qui sont déjà présents dans `collection_bibliotheque.csv`) ! Utilisez des structures conditionnelles appropriées pour éviter l'ajout de ces livres en double dans le système de gestion, en se basant sur leur cote de rangement. Pour chaque livre de la nouvelle collection, affichez l'un des messages suivants selon la situation :
 

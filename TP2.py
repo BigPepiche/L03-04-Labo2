@@ -3,7 +3,7 @@ TP2 : Système de gestion de livres pour une bibliothèque
 
 Groupe de laboratoire : L03
 Numéro d'équipe :  04
-Noms et matricules : Reginald Rancy (2393346), Zakaria Soudaki (matricule)
+Noms et matricules : Reginald Rancy (2393346), Zakaria Soudaki (2394358)
 """
 
 import csv
@@ -42,9 +42,27 @@ bibliotheque.pop("cote_rangement")
 ########################################################################################################## 
 
 # TODO : Écrire votre code ici
+file = open("nouvelle_collection.csv", "r")
+r = csv.reader(file)
 
-
-
+for livre in r:
+   titre = livre[0]
+   auteur = livre[1]
+   date_publication = livre[2]
+   clée = livre[3]
+   
+   if  clée in bibliotheque :
+       print("Le livre "+clée+" ---- "+titre+" par "+auteur+" ---- est déjà présent dans la bibliothèque")
+   else:
+       renseignements = {
+            "titre":titre,
+            "auteur":auteur,
+            "date_publication":date_publication
+            
+        }
+       bibliotheque[clée] = renseignements
+       print("Le livre "+clée+" ---- "+titre+" par "+auteur+" ---- a été ajouté avec succès")
+  
 
 
 
@@ -70,6 +88,34 @@ for clee in anciennes_clees:
 ########################################################################################################## 
 
 # TODO : Écrire votre code ici
+
+dates = open("emprunts.csv", "r")
+r = csv.reader(dates)
+
+
+clées = []
+
+for livre in r:
+
+    clée = livre[0]
+    if clée in bibliotheque:
+         bibliotheque[clée]["emprunts"] = "emprunté"
+         bibliotheque[clée]["date_emprunt"] = livre[1]
+
+    clées.append(clée)
+
+for  i in bibliotheque :
+    if i not in clées :
+         print(i)
+         bibliotheque[i]["emprunts"] = "disponible"
+    
+   
+print(f' \n Bibliotheque avec ajout des emprunts : {bibliotheque} \n')
+
+
+
+
+
 
 
 
